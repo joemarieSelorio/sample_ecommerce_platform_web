@@ -1,1 +1,16 @@
-<p>product works!</p>
+<div class="uk-flex uk-flex-column container">
+  <h2>{{product.name}}</h2>
+  <div class="uk-card uk-card-default">
+    <div class="uk-card-media-top">
+      <div class="uk-inline uk-dark">
+        <img [src]= "product.image" alt="">
+      </div>
+    </div>
+    <div class="uk-card-body">
+      <h3 class="uk-card-title">{{product.description}}</h3>
+      <p>Quantity: {{product.quantity}}</p>
+      <a class="uk-icon-link" uk-icon="cart" (click)="addToCart(1, product)"></a>
+      <hr>
+    </div>
+  </div>
+</div>

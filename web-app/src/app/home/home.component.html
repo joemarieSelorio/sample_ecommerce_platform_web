@@ -1,24 +1,26 @@
 <div class="grid-container">
-<div class="card" style="width: 18rem;" *ngFor='let product of products'>
-  <div class="uk-flex uk-flex-column container">
-    <h2>{{product.name}}</h2>
-    <div class="uk-card uk-card-default">
-      <div class="uk-card-media-top">
-        <div class="uk-inline uk-dark">
-          <img [src]= "product.image" alt="">
-          <a class="uk-position-absolute uk-transform-center" style="left: 20%; bottom: 10%" href="#" uk-marker> </a>
-            <a class="uk-position-absolute uk-transform-center" style="right: 20%; bottom: 50%" href="#" uk-marker></a>
+  <div class="card" style="width: 18rem;" *ngFor='let product of products'>
+    <div class="uk-flex uk-flex-column container">
+      <h2>{{product.name}}</h2>
+      <div class="uk-card uk-card-default">
+        <div class="uk-card-media-top">
+          <div class="uk-inline uk-dark">
+            <img [src]="product.image" alt="">
+          </div>
         </div>
-      </div>
-      <div class="uk-card-body">
-        <h3 class="uk-card-title">Awesome Cactus</h3>
-        <p>Quantity: {{product.quantity}}</p>
-        <a href="#" class="uk-icon-link" uk-icon="cart" (click)="addToCart(1, product)"></a>
-        <a href="#" class="uk-icon-link" uk-icon="social"></a>
-        <hr>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title">{{product.description}}</h3>
+          <p>Quantity: {{product.quantity}}</p>
+          <a class="uk-icon-link" uk-icon="cart" (click)="addToCart(1, product)"></a>
+          <hr>
+          <button
+              [routerLink]="['/product', product.id]"
+              class="uk-button uk-button-default uk-button-small"
+              (click) ="setProduct(product)">
+              View
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-

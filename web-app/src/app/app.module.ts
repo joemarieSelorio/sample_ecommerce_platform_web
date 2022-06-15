@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
-import { TransfereService } from './transfer-service.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,7 @@ import { TransfereService } from './transfer-service.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [TransfereService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

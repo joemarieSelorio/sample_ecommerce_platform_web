@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product',
@@ -9,19 +10,21 @@ import { DataService } from '../data.service';
 })
 export class ProductComponent implements OnInit {
 
-  product:any;
+  product: any;
+
+  constructor(
+    private dataService: DataService,
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) { }
 
   addToCart(cartId: Number, product: Object): void {
     this.dataService.addToCart(cartId, product).subscribe(res => {
-      console.log(res);
+      window.alert( `Success adding to cart!`);
     });
   }
 
-  constructor(private dataService: DataService,  private route: ActivatedRoute) { }
-
   ngOnInit(): void {
-
-   
+    this.product = this.productService.getProduct();
   }
-
 }
